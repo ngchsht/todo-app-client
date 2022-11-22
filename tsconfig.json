@@ -28,7 +28,7 @@
   },
   "include": [
     "src/**/*",
-    "test/index.spec.tsx"
+    "test/**/*"
   ],
   "exclude": ["node_modules"]
 }
