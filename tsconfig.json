@@ -17,6 +17,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "outDir": "./lib",
+    "rootDir": "../",
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
@@ -24,7 +26,8 @@
       "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src/**/*",
+    "test/index.spec.tsx"
+  ],
+  "exclude": ["node_modules"]
 }
