@@ -1,28 +1,30 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { Button } from "./components/Button";
+import styled from "styled-components";
+
+import { Header } from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button>Normal Button</Button>
-      </header>
+      <HeaderDiv>
+        <Header />
+      </HeaderDiv>
+      <ContentDiv />
     </div>
   );
 }
 
 export default App;
+
+const HeaderDiv = styled.div`
+  width: 300px;
+  height: 1000px;
+  box-sizing: border-box;
+  border-right: 2px solid #e6e6e6;
+`;
+
+const ContentDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`;
