@@ -1,21 +1,17 @@
-// import "jsdom-global/register";
-import { equal } from "assert";
+import "jsdom-global/register";
 import { expect } from "chai";
 import React from "react";
-// import { mount } from "enzyme";
-import { render, screen } from "@testing-library/react";
+import Enzyme, { mount } from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+
 import App from "../src/App";
 
-describe("Typescript + Babel usage suite", () => {
-  it("should return string correctly", () => {
-    equal("Hello mocha", "Hello mocha");
-  });
-});
+Enzyme.configure({ adapter: new Adapter() });
 
 describe("renders learn react link", () => {
-  render(<App />);
-  // const wrapper = mount(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  // const linkElementText = wrapper.find("a").text();
-  expect(linkElement).to.equal("Learn React");
+  it("get text", () => {
+    const wrapper = mount(<App />);
+    const linkElementText = wrapper.find("a").text();
+    expect(linkElementText).to.equal("Learn React");
+  });
 });
