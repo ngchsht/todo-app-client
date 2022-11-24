@@ -4,14 +4,24 @@ import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
-import App from "@/App";
-import { Header } from "@/components/Header";
+import App from "../src/App";
+import { Header } from "../src/components/Header";
+import { TaskList } from "../src/components/TaskList";
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("App", () => {
+  let wrapper: Enzyme.ShallowWrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
   it("Headerコンポーネントが存在すること", () => {
-    const wrapper = shallow(<App />);
     expect(wrapper.exists(Header)).to.equal(true);
+  });
+
+  it("TaskListコンポーネントが存在すること", () => {
+    expect(wrapper.exists(TaskList)).to.equal(true);
   });
 });

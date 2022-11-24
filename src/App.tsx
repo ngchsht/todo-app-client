@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Header } from "./components/Header";
+import { TaskList } from "./components/TaskList";
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
       <HeaderDiv>
         <Header />
       </HeaderDiv>
-      <ContentDiv />
+      <ContentDiv>
+        <TaskList />
+      </ContentDiv>
     </div>
   );
 }
