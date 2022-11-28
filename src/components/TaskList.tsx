@@ -1,5 +1,7 @@
 import React from "react";
 import { Task } from "./Task";
+import styled from "styled-components";
+import { StyledConst } from "../consts/styledConst";
 
 export type TaskResponse = {
     id: string;
@@ -20,16 +22,14 @@ export class TaskList extends React.Component<{}, State> {
     }
 
     async componentDidMount() {
-        const response: Response = await fetch(
-            "https://jsonplaceholder.typicode.com/todos"
-        );
+        const response: Response = await fetch("/tasks");
         const tasks: TaskResponse[] = await response.json();
         this.setState({ ...this.state, tasks });
     }
 
     render() {
         return (
-            <ul>
+            <StyledDiv>
                 {this.state.tasks.map((value) => (
                     <Task
                         key={value.id}
@@ -37,7 +37,12 @@ export class TaskList extends React.Component<{}, State> {
                         completed={value.completed}
                     />
                 ))}
-            </ul>
+            </StyledDiv>
         );
     }
 }
+
+const StyledDiv = styled.div`
+    width: 100%;
+    padding-top: ${StyledConst.TaskList.PADDING_SIZE};
+`;

@@ -3,65 +3,62 @@ import styled, { css } from "styled-components";
 import { Home } from "@styled-icons/entypo/Home";
 import { PencilAlt } from "@styled-icons/heroicons-solid/PencilAlt";
 
+import { StyledConst } from "../consts/styledConst";
+
 export class Header extends React.Component<{}, {}> {
-  render() {
-    return (
-      <StyledDiv>
-        <StyledInnerDiv>
-          <h1>Todo App</h1>
-        </StyledInnerDiv>
-        <StyledInnerDiv>
-          <StyledA>
-            <StyledHomeIcon />
-            <StyledSpan>Home</StyledSpan>
-          </StyledA>
-        </StyledInnerDiv>
-        <StyledInnerDiv>
-          <StyledA>
-            <StyledPencilAltIcon />
-            <StyledSpan>New Task</StyledSpan>
-          </StyledA>
-        </StyledInnerDiv>
-      </StyledDiv>
-    );
-  }
+    render() {
+        return (
+            <StyledDiv>
+                <StyledInnerDiv>
+                    <h1>Todo App</h1>
+                </StyledInnerDiv>
+                <StyledInnerDiv>
+                    <StyledA>
+                        <StyledHomeIcon />
+                        <StyledSpan>Home</StyledSpan>
+                    </StyledA>
+                </StyledInnerDiv>
+                <StyledInnerDiv>
+                    <StyledA>
+                        <StyledPencilAltIcon />
+                        <StyledSpan>New Task</StyledSpan>
+                    </StyledA>
+                </StyledInnerDiv>
+            </StyledDiv>
+        );
+    }
 }
 
-const PADDING_SIZE: string = "30px";
-const PADDING_SIZE_BETWEEN_ICON_AND_TEXT: string = "20px";
-const LINK_COLOR: string = "gray";
-const LINK_SIZE: string = "24px";
-
 const StyledDiv = styled.div`
-  padding-left: ${PADDING_SIZE};
+    padding-left: ${StyledConst.Header.PADDING_SIZE};
 `;
 
 const StyledInnerDiv = styled.div`
-  padding-top: ${PADDING_SIZE};
-  padding-bottom: ${PADDING_SIZE};
+    padding-top: ${StyledConst.Header.PADDING_SIZE};
+    padding-bottom: ${StyledConst.Header.PADDING_SIZE};
 `;
 
 const StyledA = styled.a`
-  color: ${LINK_COLOR};
-  font-size: ${LINK_SIZE};
+    color: ${StyledConst.Header.LINK_COLOR};
+    font-size: ${StyledConst.Header.LINK_SIZE};
 `;
 
 const StyledSpan = styled.span`
-  vertical-align: middle;
+    vertical-align: middle;
 `;
 
 const BaseIconCSS = css`
-  color: ${LINK_COLOR};
-  width: ${LINK_SIZE};
-  height: ${LINK_SIZE};
-  padding-right: ${PADDING_SIZE_BETWEEN_ICON_AND_TEXT};
-  vertical-align: middle;
+    color: ${StyledConst.Header.LINK_COLOR};
+    width: ${StyledConst.Header.LINK_SIZE};
+    height: ${StyledConst.Header.LINK_SIZE};
+    padding-right: ${StyledConst.Header.PADDING_SIZE_BETWEEN_ICON_AND_TEXT};
+    vertical-align: middle;
 `;
 
 const StyledHomeIcon = styled(Home)`
-  ${BaseIconCSS}
+    ${BaseIconCSS}
 `;
 
 const StyledPencilAltIcon = styled(PencilAlt)`
-  ${BaseIconCSS}
+    ${BaseIconCSS}
 `;
