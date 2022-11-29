@@ -4,6 +4,7 @@ import { Home } from "@styled-icons/entypo/Home";
 import { PencilAlt } from "@styled-icons/heroicons-solid/PencilAlt";
 
 import { StyledConst } from "../consts/styledConst";
+import { Link } from "react-router-dom";
 
 export class Header extends React.Component<{}, {}> {
     render() {
@@ -13,16 +14,16 @@ export class Header extends React.Component<{}, {}> {
                     <h1>Todo App</h1>
                 </StyledInnerDiv>
                 <StyledInnerDiv>
-                    <StyledA>
+                    <StyledLink to={"/"}>
                         <StyledHomeIcon />
                         <StyledSpan>Home</StyledSpan>
-                    </StyledA>
+                    </StyledLink>
                 </StyledInnerDiv>
                 <StyledInnerDiv>
-                    <StyledA>
+                    <StyledLink to={"/newtask"}>
                         <StyledPencilAltIcon />
                         <StyledSpan>New Task</StyledSpan>
-                    </StyledA>
+                    </StyledLink>
                 </StyledInnerDiv>
             </StyledDiv>
         );
@@ -38,9 +39,10 @@ const StyledInnerDiv = styled.div`
     padding-bottom: ${StyledConst.Header.PADDING_SIZE};
 `;
 
-const StyledA = styled.a`
+const StyledLink = styled(Link)`
     color: ${StyledConst.Header.LINK_COLOR};
     font-size: ${StyledConst.Header.LINK_SIZE};
+    text-decoration: none;
 `;
 
 const StyledSpan = styled.span`

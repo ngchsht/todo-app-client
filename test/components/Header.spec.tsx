@@ -9,22 +9,22 @@ import { Header } from "../../src/components/Header";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("Header", () => {
-  let wrapper: Enzyme.ReactWrapper;
+    let wrapper: Enzyme.ReactWrapper;
 
-  beforeEach(() => {
-    wrapper = mount(<Header />);
-  });
+    beforeEach(() => {
+        wrapper = mount(<Header />);
+    });
 
-  it("ページタイトルの確認", () => {
-    const h1ElementText = wrapper.find("h1").text();
-    expect(h1ElementText).to.equal("Todo App");
-  });
+    it("ページタイトルの確認", () => {
+        const h1ElementText = wrapper.find("h1").text();
+        expect(h1ElementText).to.equal("Todo App");
+    });
 
-  it("２つのリンク（HomeとNewTask）が存在すること", () => {
-    const aElements = wrapper.find("a");
-    expect(aElements.length).to.equal(2);
-    expect(aElements.at(0).text()).to.equal("Home");
-    expect(aElements.at(1).text()).to.equal("New Task");
-    //TODO: リンク先が正しいことを確認するテストが必要
-  });
+    it("２つのリンク（HomeとNewTask）が存在すること", () => {
+        const aElements = wrapper.find("a");
+        expect(aElements.length).to.equal(2);
+        expect(aElements.at(0).text()).to.equal("Home");
+        expect(aElements.at(1).text()).to.equal("New Task");
+        //TODO: リンク先が正しいことを確認するテストが必要
+    });
 });

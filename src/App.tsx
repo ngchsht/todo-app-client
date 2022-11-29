@@ -1,9 +1,11 @@
 import React from "react";
+import {Route, Routes} from "react-router-dom";
 import styled from "styled-components";
 
-import { Header } from "./components/Header";
-import { TaskList } from "./components/TaskList";
-import { StyledConst } from "./consts/styledConst";
+import {Header} from "./components/Header";
+import {TaskList} from "./components/TaskList";
+import {StyledConst} from "./consts/styledConst";
+import {NewTask} from "./components/NewTask";
 
 function App() {
     return (
@@ -12,7 +14,10 @@ function App() {
                 <Header />
             </HeaderDiv>
             <ContentDiv>
-                <TaskList />
+                <Routes>
+                    <Route path="/" element={<TaskList />} />
+                    <Route path="/newtask" element={<NewTask />} />
+                </Routes>
             </ContentDiv>
         </OuterDiv>
     );
