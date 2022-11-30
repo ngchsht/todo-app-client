@@ -5,6 +5,7 @@ import { TaskResponse } from "./TaskList";
 
 export const NewTask: React.FC = () => {
     const textRef = useRef<HTMLInputElement>(null!);
+    const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [message, setMessage] = useState<string>("");
 
@@ -22,6 +23,7 @@ export const NewTask: React.FC = () => {
         if (response.ok) {
             const task: TaskResponse = await response.json();
             setMessage(`${task.title} is created`);
+            setButtonDisabled(true);
             textRef.current.value = "";
         } else {
             setMessage("failed");
@@ -29,13 +31,28 @@ export const NewTask: React.FC = () => {
         setIsOpen(true);
     };
 
+    const onChangeHandler = () => {
+        if ((textRef.current.value.length === 0) !== buttonDisabled) {
+            setButtonDisabled(!buttonDisabled);
+        }
+    };
+
     return (
         <StyledDiv>
-            {message}
             <form>
                 <StyledLabel>TITLE</StyledLabel>
-                <StyledInput type={"text"} required={true} ref={textRef} />
-                <StyledButton onClick={onClickHandler}>Send</StyledButton>
+                <StyledInput
+                    type={"text"}
+                    required={true}
+                    ref={textRef}
+                    onChange={onChangeHandler}
+                />
+                <StyledButton
+                    onClick={onClickHandler}
+                    disabled={buttonDisabled}
+                >
+                    Send
+                </StyledButton>
             </form>
             <Snackbar
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
@@ -86,4 +103,8 @@ const StyledButton = styled.button`
     background: #29cf96;
     color: white;
     cursor: pointer;
+    &:disabled {
+        filter: brightness(0.8);
+        cursor: not-allowed;
+    }
 `;
