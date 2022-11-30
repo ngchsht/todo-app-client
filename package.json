@@ -6,6 +6,7 @@
   "proxy": "http://localhost:8080/",
   "dependencies": {
     "@material-ui/core": "^3.9.4",
+    "@material-ui/icons": "^3.0.2",
     "@styled-icons/entypo": "^10.46.0",
     "@styled-icons/heroicons-solid": "^10.46.0",
     "@testing-library/jest-dom": "^5.16.5",
