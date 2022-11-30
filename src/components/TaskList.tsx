@@ -27,6 +27,16 @@ export class TaskList extends React.Component<{}, State> {
         this.setState({ ...this.state, tasks });
     }
 
+    deleteTask = (id: string) => {
+        this.setState({
+            ...this.state,
+            tasks: this.state.tasks.filter((task) => {
+                console.log(task.id !== id);
+                return task.id !== id;
+            }),
+        });
+    };
+
     render() {
         return (
             <StyledDiv>
@@ -36,6 +46,7 @@ export class TaskList extends React.Component<{}, State> {
                         id={value.id}
                         title={value.title}
                         completed={value.completed}
+                        deleteTask={this.deleteTask}
                     />
                 ))}
             </StyledDiv>
