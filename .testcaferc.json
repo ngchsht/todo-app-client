@@ -1,0 +1,10 @@
+{
+  "screenshots": {
+    "path": "e2e/artifacts/screenshots",
+    "takeOnFails": true,
+    "fullPage": true
+  },
+  "skipJsErrors": true,
+  "stopOnFirstFail": true,
+  "disablePageCaching": true
+}

@@ -3,10 +3,10 @@
         "browser": true,
         "es2021": true,
         "mocha": true
+
     },
     "extends": [
         "plugin:react/recommended",
-//        "airbnb",
         "eslint:recommended",
         "prettier"
     ],
@@ -22,7 +22,9 @@
         "react",
         "@typescript-eslint"
     ],
-    "rules": {
-//        "import/extensions": [".js", ".jsx", ".json", ".ts", ".tsx"]
-    }
+    "globals": {
+        "global": true,
+        "fixture": "readonly"
+    },
+    "rules": {}
 }
