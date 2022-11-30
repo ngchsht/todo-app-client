@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { StyledConst } from "../consts/styledConst";
 
 export type TaskType = {
-    key: string;
+    id: string;
     title: string;
     completed: boolean;
 };
@@ -23,6 +23,18 @@ export class Task extends React.Component<TaskProps, State> {
         };
     }
 
+    onChangeHandler = async () => {
+        const completedBeforeClick = this.state.completed;
+        this.setState({ completed: !completedBeforeClick });
+        await fetch(`/tasks/${this.props.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ completed: !completedBeforeClick }),
+        });
+    };
+
     render() {
         const title = this.props.title;
         return (
@@ -30,9 +42,7 @@ export class Task extends React.Component<TaskProps, State> {
                 <StyledInput
                     type="checkbox"
                     checked={this.state.completed}
-                    onChange={() => {
-                        this.setState({ completed: !this.state.completed });
-                    }}
+                    onChange={this.onChangeHandler}
                 />
                 <StyledSpan>{title}</StyledSpan>
             </StyledDiv>

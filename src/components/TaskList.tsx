@@ -33,6 +33,7 @@ export class TaskList extends React.Component<{}, State> {
                 {this.state.tasks.map((value) => (
                     <Task
                         key={value.id}
+                        id={value.id}
                         title={value.title}
                         completed={value.completed}
                     />
