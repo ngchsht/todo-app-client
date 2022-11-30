@@ -28,3 +28,6 @@ yarn-error.log*
 # floobits
 .floo
 .flooignore
+
+# e2e artifacts
+e2e/artifacts

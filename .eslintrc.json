@@ -23,7 +23,8 @@
         "@typescript-eslint"
     ],
     "globals": {
-        "global": true
+        "global": true,
+        "fixture": "readonly"
     },
     "rules": {}
 }
